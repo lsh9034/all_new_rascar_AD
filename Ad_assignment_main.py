@@ -75,7 +75,28 @@ class myCar(object):
     # T parking
     def T_parking(self):
         speed = constant_setting.T_parking_speed
-    
+        vector = numpy.array([-3, -1, 0, 1, 3])
+        turning_rate = constant_setting.turning_rate
+
+        self.stop()
+        self.turn(0)
+        self.move(-speed)
+        time.sleep(0.6)
+        self.turn(25)
+        self.move(speed)
+        time.sleep(0.6)
+
+        lines = self.read_digit()
+        while( (lines != [0,0,0,0,0]).all() ):
+            lines = self.read_digit()
+            lines_sum = numpy.sum(lines)
+            dot = numpy.dot(vector, lines)
+            turning_angle = dot * turning_rate / lines_sum
+            self.turn(turning_angle)
+        self.move(speed)
+        time.sleep(0.4)
+
+
     def driving(self):
         case = self.STOP
         speed = constant_setting.driving_speed
@@ -127,7 +148,7 @@ class myCar(object):
                     case = self.EVADING
                     break
             
-            if lines == T_parking_condition:
+            if (lines == T_parking_condition).all():
                 case =  self.T_PARKING
                 break
 
