@@ -74,14 +74,14 @@ class myCar(object):
 
     # assignment code
     def assign(self):
-        speed = 75
+        speed = 50
         count = 0
         obstacle_count = 0
         stop_condition = 2
         evading_condition = 2
         evading_count = 0
         vector = numpy.array([-3, -1, 0, 1, 3])
-        turning_rate = 12
+        turning_rate = 9
         before_turning_angle = 0
         before_lines_sum = 0
         self.move_front(speed)
@@ -90,6 +90,7 @@ class myCar(object):
             lines_sum = numpy.sum(lines)
             if lines_sum >= 5:
                 count += 1
+                print(count)
                 if count >= stop_condition:
                     break
             else:
