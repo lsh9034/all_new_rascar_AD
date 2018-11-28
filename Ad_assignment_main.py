@@ -26,7 +26,7 @@ class myCar(object):
     def move(self, speed):
         speed = int(speed)
         if speed < 0:
-            self.car.accelerator.go_backward(speed)
+            self.car.accelerator.go_backward(abs(speed))
         else:
             self.car.accelerator.go_forward(speed)
 
