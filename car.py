@@ -69,9 +69,9 @@ class Car(object):
             # ================================================================
             # RGB MODULE DRIVER INITIALIZE
             # ================================================================
-            self.color_getter = RGB_Sensor.TCS34725()
-            if self.color_getter.get_exception_occur():
-                print("[ERRNO-101] There is a problem with RGB_Sensor(TCS34725)")
+            #self.color_getter = RGB_Sensor.TCS34725()
+            #if self.color_getter.get_exception_occur():
+            #    print("[ERRNO-101] There is a problem with RGB_Sensor(TCS34725)")
 
             # ================================================================
             # DISABLE RGB MODULE INTERRUPTION
