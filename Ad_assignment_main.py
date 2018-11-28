@@ -24,7 +24,7 @@ class myCar(object):
 
     # move front when speed is positive, else move back
     def move(self, speed):
-        speed = int(speed)
+        speed = abs(int(speed))
         if speed < 0:
             self.car.accelerator.go_backward(speed)
         else:
