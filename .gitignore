@@ -4,3 +4,4 @@ config
 */__pycache__
 */cpuinfo
 *.pyc
+constant_setting.py
