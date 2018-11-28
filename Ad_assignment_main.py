@@ -15,6 +15,7 @@ class myCar(object):
 
     def __init__(self, car_name):
         self.car = Car(car_name)
+        self.STOP
         self.EVADING = 1
         self.T_PARKING = 2
 
@@ -84,6 +85,9 @@ class myCar(object):
         obstacle_count = 0
         obstacle_detected_distance = 40
         evading_condition = 2
+
+        # T parking setting
+        T_parking_condition = numpy.array([1, 0, 0, 0, 1])
         
         vector = numpy.array([-3, -1, 0, 1, 3])
         turning_rate = constant_setting.turning_rate
@@ -120,6 +124,9 @@ class myCar(object):
                 if obstacle_count > evading_condition:
                     obstacle_count = 0
                     return self.EVADING
+            
+            if lines == T_parking_condition:
+                return self.T_PARKING
 
             dot = numpy.dot(vector, lines)
             turning_angle = dot * turning_rate / lines_sum if lines_sum else before_turning_angle
@@ -130,11 +137,19 @@ class myCar(object):
             self.move(speed)
             
         self.stop()
+        return self.STOP
 
     # assignment code
     def assign(self):
-        pass
-
+        while True :
+            case = self.driving()
+            if case == self.EVADING:
+                self.evading()
+            elif case == self.T_PARKING:
+                self.T_parking()
+                break
+        
+        self.driving()
 
     # =======================================================================
     # 3RD_ASSIGNMENT_CODE
