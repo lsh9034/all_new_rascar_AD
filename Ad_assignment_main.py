@@ -76,7 +76,7 @@ class myCar(object):
         speed = constant_setting.T_parking_speed
     
     def driving(self):
-        speed = 75
+        speed = constant_setting.driving_speed
         count = 0
         stop_condition = 2
         
@@ -86,7 +86,7 @@ class myCar(object):
         evading_condition = 2
         
         vector = numpy.array([-3, -1, 0, 1, 3])
-        turning_rate = 12
+        turning_rate = constant_setting.turning_rate
         before_turning_angle = 0
         before_lines_sum = 0
         self.move(speed)
