@@ -127,7 +127,7 @@ class myCar(object):
                     case = self.EVADING
                     break
             
-            if lines == T_parking_condition:
+            if (lines == T_parking_condition).all():
                 case =  self.T_PARKING
                 break
 
