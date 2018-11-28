@@ -70,7 +70,7 @@ class myCar(object):
         while numpy.sum(self.read_digit()) == 0:
             time.sleep(0.01)
         self.turn(turn_left_angle)
-        time.sleep(0.05)
+        time.sleep(0.1)
     
     # T parking
     def T_parking(self):
@@ -169,7 +169,9 @@ class myCar(object):
     def assign(self):
         while True :
             case = self.driving()
-            if case == self.EVADING:
+            if case == self.STOP:
+                return
+            elif case == self.EVADING:
                 self.evading()
             elif case == self.T_PARKING:
                 self.T_parking()
