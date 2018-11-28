@@ -74,6 +74,7 @@ class myCar(object):
     
     # T parking
     def T_parking(self):
+        print("T_parking")
         speed = constant_setting.T_parking_speed
         vector = numpy.array([-3, -1, 0, 1, 3])
         turning_rate = constant_setting.turning_rate
@@ -98,6 +99,7 @@ class myCar(object):
 
 
     def driving(self):
+        print("driving")
         case = self.STOP
         speed = constant_setting.driving_speed
         count = 0
