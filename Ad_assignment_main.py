@@ -70,7 +70,7 @@ class myCar(object):
         while numpy.sum(self.read_digit()) == 0:
             time.sleep(0.01)
         self.turn(turn_left_angle)
-        time.sleep(0.1)
+        time.sleep(0.03)
     
     # T parking
     def T_parking(self):
@@ -115,7 +115,7 @@ class myCar(object):
         
         vector = numpy.array([-3, -1, 0, 1, 3])
         turning_rate = constant_setting.turning_rate
-        before_turning_angle = -35
+        before_turning_angle = -25
         before_lines_sum = 0
         self.move(speed)
         while True:
