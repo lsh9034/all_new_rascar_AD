@@ -77,6 +77,7 @@ class myCar(object):
         speed = constant_setting.T_parking_speed
     
     def driving(self):
+        case = self.STOP
         speed = constant_setting.driving_speed
         count = 0
         stop_condition = 2
@@ -123,10 +124,12 @@ class myCar(object):
                 obstacle_count += 1
                 if obstacle_count > evading_condition:
                     obstacle_count = 0
-                    return self.EVADING
+                    case = self.EVADING
+                    break
             
             if lines == T_parking_condition:
-                return self.T_PARKING
+                case =  self.T_PARKING
+                break
 
             dot = numpy.dot(vector, lines)
             turning_angle = dot * turning_rate / lines_sum if lines_sum else before_turning_angle
@@ -137,7 +140,7 @@ class myCar(object):
             self.move(speed)
             
         self.stop()
-        return self.STOP
+        return case
 
     # assignment code
     def assign(self):
