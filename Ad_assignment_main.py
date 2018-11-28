@@ -15,7 +15,7 @@ class myCar(object):
 
     def __init__(self, car_name):
         self.car = Car(car_name)
-        self.STOP
+        self.STOP = 0
         self.EVADING = 1
         self.T_PARKING = 2
 
