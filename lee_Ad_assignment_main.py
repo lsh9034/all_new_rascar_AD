@@ -137,7 +137,7 @@ class myCar(object):
             check,degree = self.compute_degree(lines)
             if(lines == [0,0,0,0,0]):
                 print(past_degree)
-                self.turn(past_degree)
+                self.turn(-past_degree)
             elif(past_degree != degree):
                 past_degree = degree
                 self.turn(degree)
