@@ -97,7 +97,7 @@ class myCar(object):
         time.sleep(1.5)
         self.turn(0)
         self.move(-speed)
-        time.sleep(1)
+        time.sleep(1.5)
 
     def compute_degree(self,lines):
         degree = 90
