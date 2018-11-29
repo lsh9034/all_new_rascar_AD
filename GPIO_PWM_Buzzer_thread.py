@@ -6,6 +6,7 @@ distance_arr = [10, 12, 14, 15, 16, 17, 20, 25, 30 , 34, 40 , 50 , 70, 100]
 
 class Buzzer(Thread):
     def __init__(self):
+        Thread.__init__(self)
         self.distance = 5000
         # Raspberry pi pin number
         buzzer_pin = 11
