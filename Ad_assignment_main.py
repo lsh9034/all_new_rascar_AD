@@ -194,8 +194,6 @@ class myCar(object):
         # Implement the assignment code here.
         try:
             self.buzzer = Buzzer(self.get_distance)
-            self.buzzer.start()
-
             p = Process(target = self.buzzer.run)
             p.start()
 
