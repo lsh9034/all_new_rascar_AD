@@ -170,7 +170,7 @@ class myCar(object):
         self.turn(0)
         self.move(speed)
         line_count = 5
-        while line_count >3 :
+        while line_count >2 :
             lines = self.read_digit()
             line_count = self.count_line(lines)
 
