@@ -31,9 +31,7 @@ class Buzzer(Thread):
                 continue
             self.beforeTime = now
             distance = self.get_distance()
-            print(now, distance)
             if distance < 50:
-                print("Beep!, distance :", distance)
                 self.buzzer.start(5)
                 buzzerTime = buzzerTimeRate * distance
                 self.delay = buzzerTime * 5
