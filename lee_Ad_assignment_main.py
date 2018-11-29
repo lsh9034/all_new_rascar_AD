@@ -128,7 +128,7 @@ class myCar(object):
         self.move(speed)
         self.turn(25)
         time.sleep(1.5)
-        self.turn(-20)
+        self.turn(-15)
         self.move(-speed)
         time.sleep(1)
 
