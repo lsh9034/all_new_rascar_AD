@@ -196,7 +196,7 @@ class myCar(object):
             self.supersonic = Supersonic()
             self.supersonic.start()
 
-            self.buzzer = Buzzer(self.get_distance, self.supersonic)
+            self.buzzer = Buzzer(self.supersonic)
             self.buzzer.start()
 
             self.assign()
