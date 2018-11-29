@@ -8,7 +8,7 @@ class Buzzer(Thread):
     def __init__(self):
         self.distance = 5000
         # Raspberry pi pin number
-        buzzer_pin = 33
+        buzzer_pin = 17
         frequency = 100
         self.buzzer = GPIO.setup(buzzer_pin, frequency)
         self.buzzer.ChangeFrequency(523.2)
