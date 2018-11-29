@@ -132,8 +132,10 @@ class myCar(object):
         self.move(-speed)
         time.sleep(1)
 
-        while (not self.car.line_detector.is_in_line()):
-            continue
+        line_count = 0
+        while line_count < 3:
+            lines = self.read_digit()
+            line_count = self.count_line(lines)
 
         line_count = 5
         while line_count > 2:
