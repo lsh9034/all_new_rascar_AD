@@ -137,7 +137,7 @@ class myCar(object):
             lines = self.read_digit()
             line_count = self.count_line(lines)
 
-        self.turn(0)
+        self.turn(20)
         print("touch line")
         line_count = 5
         while line_count > 2:
