@@ -189,7 +189,7 @@ class myCar(object):
 
             elif [1,1,1,1,1] == status and count > 4000:
                 break
-            if (status == [1,1,1,0,0] or status == [1,1,1,1,0] or status == [0,1,1,1,0] or status == [1,0,1,1,0]) and pass_obstacle==1 and check_T == True:
+            if (status == [1,1,1,0,0] or status == [1,1,1,1,0] or status == [0,1,1,1,0] or status == [1,0,1,1,0] or status == [1,0,1,0,0]) and pass_obstacle==1 and check_T == True:
                 self.T_parking()
                 check_T = False
 
