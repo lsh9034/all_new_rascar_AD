@@ -169,8 +169,11 @@ class myCar(object):
         
         self.turn(0)
         self.move(speed)
-        while (self.car.line_detector.is_in_line()):
-            continue
+        line_count = 5
+        while line_count >3 :
+            lines = self.read_digit()
+            line_count = self.count_line(lines)
+
         time.sleep(0.05)
         self.stop()
         print("T_parking Complete")
