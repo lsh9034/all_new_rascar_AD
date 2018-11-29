@@ -140,6 +140,7 @@ class myCar(object):
                 self.turn(degree)
             if(lines != [0,0,0,0,0]):
                 start_time = time.time()
+            print(start_time)
 
 
         self.move(speed)
