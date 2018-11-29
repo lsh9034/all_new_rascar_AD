@@ -193,12 +193,12 @@ class myCar(object):
     def car_startup(self):
         # Implement the assignment code here.
         try:
-            self.buzzer = Buzzer(self.get_distance)
-            self.buzzer.start()
-
             self.supersonic = Supersonic()
             self.supersonic.start()
-            
+
+            self.buzzer = Buzzer(self.get_distance, self.supersonic)
+            self.buzzer.start()
+
             self.assign()
         except Exception as e:
             print(e)
