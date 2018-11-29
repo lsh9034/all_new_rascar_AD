@@ -19,7 +19,7 @@ class Buzzer:
         self.__stop = boolean
 
     def run(self):
-        buzzerTimeRate = 0.002
+        buzzerTimeRate = 0.001
         while not self.__stop:
             now = time.time()
             diff = now - self.beforeTime
