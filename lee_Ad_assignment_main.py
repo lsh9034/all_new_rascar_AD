@@ -192,6 +192,8 @@ class myCar(object):
         self.move(speed)
         while self.car.line_detector.is_in_line():
             continue
+        self.turn(-20)
+        time.sleep(0.5)
         self.turn(30)
         self.move(-speed)
         line_count = 0
