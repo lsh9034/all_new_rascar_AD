@@ -186,9 +186,10 @@ class myCar(object):
 
         self.turn(-20)
         self.move(speed)
-        while(not self.car.line_detector.is_in_line()):
+        while self.car.line_detector.is_in_line():
             continue
         self.turn(30)
+        self.move(-speed)
         line_count = 0
         while line_count < 3:
             lines = self.read_digit()
