@@ -151,6 +151,7 @@ class myCar(object):
                     if (count_obstacle >= 3):
                         self.avoid_Obastacle(35)
                         pass_obstacle += 1
+                        print(pass_obstacle)
                 else:
                     count_obstacle = 0
 
@@ -173,7 +174,6 @@ class myCar(object):
                 self.T_parking()
 
             count+=1
-            print(count)
         self.car.accelerator.stop()
 
     def car_startup(self):
