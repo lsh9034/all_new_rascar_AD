@@ -149,6 +149,7 @@ class myCar(object):
         count = 0
         count_obstacle = 0
         pass_obstacle = 0
+        check_T = True
         while (True):
 
             if(pass_obstacle<2):
@@ -168,7 +169,6 @@ class myCar(object):
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
-
             elif degree != past_degree:  # 전에 꺽은 각도와 다른 경우에만 서보모터에 각도 적용
                 self.turn(degree)
                 past_degree = degree
@@ -176,8 +176,9 @@ class myCar(object):
 
             elif [1,1,1,1,1] == status and count > 4000:
                 break
-            elif status == [1,1,1,0,0] or status == [1,1,1,1,0]:
+            elif (status == [1,1,1,0,0] or status == [1,1,1,1,0] or status == [0,1,1,1,0]) and pass_obstacle==1 and check_T == True:
                 self.T_parking()
+                check_T = False
 
             count+=1
         self.car.accelerator.stop()
