@@ -1,7 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 
-class Buzze:
+class Buzzer:
     def __init__(self, get_distance):
         self.get_distance = get_distance
         # Raspberry pi pin number
