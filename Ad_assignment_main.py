@@ -10,8 +10,8 @@ from car import Car
 import time
 import numpy
 import constant_setting
+from multiprocessing import Process
 from GPIO_PWM_Buzzer_thread import Buzzer
-from Supersonic_thread import Supersonic
 
 class myCar(object):
 
@@ -22,7 +22,6 @@ class myCar(object):
         self.T_PARKING = 2
 
         self.buzzer = None
-        self.supersonic = None
 
     def drive_parking(self):
         self.buzzer.stop()
@@ -42,7 +41,8 @@ class myCar(object):
 
     # get distance by accpeted error for stable distance
     def get_distance(self):
-        return self.supersonic.distance
+        distances = sorted([self.car.distance_detector.get_distance() for i in range(5)])
+        return distances[2]
 
     def read_digit(self):
         return numpy.array(self.car.line_detector.read_digital())
@@ -193,17 +193,14 @@ class myCar(object):
     def car_startup(self):
         # Implement the assignment code here.
         try:
-            self.supersonic = Supersonic()
-            self.supersonic.start()
-
-            self.buzzer = Buzzer(self.supersonic)
-            self.buzzer.start()
+            self.buzzer = Buzzer(self.get_distance)
+            p = Process(target = self.buzzer.run)
+            p.start()
 
             self.assign()
         except Exception as e:
             print(e)
             self.buzzer.stop()
-            self.supersonic.stop()
             self.stop()
 
 
