@@ -70,7 +70,7 @@ class myCar(object):
         while numpy.sum(self.read_digit()) == 0:
             time.sleep(0.01)
         self.turn(turn_left_angle)
-        time.sleep(0.03)
+        time.sleep(0.2)
     
     # T parking
     def T_parking(self):
