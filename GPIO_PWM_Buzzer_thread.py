@@ -48,8 +48,10 @@ class Buzzer(Thread):
 if __name__ == "__main__":
     buzzer = Buzzer()
     buzzer.start()
-    for distance in distance_arr:
-        buzzer.set_distance(distance)
+    for d in distance_arr:
+        buzzer.set_distance(d)
+        print(d)
+        time.sleep(0.2)
     try:
         while True:
             pass
