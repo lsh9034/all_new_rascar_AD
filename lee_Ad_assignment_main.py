@@ -168,6 +168,8 @@ class myCar(object):
 
             check,degree = self.compute_degree(status) #check는 라인밖으로 나갔는지 degree는 꺽어야할 각도
 
+            if pass_obstacle ==1:
+                print(status)
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
