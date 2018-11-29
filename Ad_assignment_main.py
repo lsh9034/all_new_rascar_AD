@@ -91,9 +91,6 @@ class myCar(object):
         obstacle_count = 0
         obstacle_detected_distance = 40
         evading_condition = 2
-
-        # T parking setting
-        T_parking_condition = numpy.array([1, 0, 0, 0, 1])
         
         vector = numpy.array([-3, -1, 0, 1, 3])
         turning_rate = constant_setting.turning_rate
