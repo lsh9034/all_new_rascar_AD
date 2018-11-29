@@ -194,7 +194,7 @@ class myCar(object):
             continue
         self.turn(-18)
         time.sleep(1.5)
-        self.turn(27)
+        self.turn(24)
         self.move(-speed)
         line_count = 0
         while line_count < 3:
