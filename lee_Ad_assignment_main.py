@@ -166,6 +166,12 @@ class myCar(object):
                 past_degree = degree
                 self.turn(-degree)
                 check_out = False
+        
+        self.turn(0)
+        self.move(speed)
+        while (not self.car.line_detector.is_in_line()):
+            continue
+        time.sleep(0.05)
         self.stop()
         print("T_parking Complete")
         while(True):

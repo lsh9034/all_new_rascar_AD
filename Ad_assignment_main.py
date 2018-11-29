@@ -57,16 +57,16 @@ class myCar(object):
         print("evading")
         speed = constant_setting.evading_speed
         self.move(speed)
-        self.turn(-40)
+        self.turn(40)
         time.sleep(0.6)
         while(not self.car.line_detector.is_in_line()):
             continue
-        self.turn(40)
+        self.turn(-40)
         time.sleep(1.6)
         while(not self.car.line_detector.is_in_line()):
             continue
 
-        self.turn(-15)
+        self.turn(15)
         time.sleep(1.5)
         self.turn(0)
         self.move(-speed)
