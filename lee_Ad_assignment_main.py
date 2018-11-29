@@ -139,6 +139,8 @@ class myCar(object):
         self.move(speed)
         time.sleep(0.4)
         self.stop()
+        while(True):
+            continue
 
     def line_tracing(self):
         print("line_tracing")
