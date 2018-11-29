@@ -163,6 +163,7 @@ class myCar(object):
 
             if(pass_obstacle ==1 and status == [0,0,1,0,0]):
                 check_T = True
+                print("Ready")
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
