@@ -93,7 +93,7 @@ class myCar(object):
         while(not self.car.line_detector.is_in_line()):
             continue
 
-        self.turn(-20)g
+        self.turn(-20)
         time.sleep(1.2)
         self.turn(0)
         self.move(-speed)
