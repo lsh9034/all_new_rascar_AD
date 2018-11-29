@@ -10,6 +10,7 @@ class Buzzer(Thread):
         # Raspberry pi pin number
         buzzer_pin = 11
         frequency = 100
+        GPIO.setmode(GPIO.BOARD)
         self.buzzer = GPIO.setup(buzzer_pin, frequency)
         self.buzzer.ChangeFrequency(523.2)
         self.beforeTime = time.time()
