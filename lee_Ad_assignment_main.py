@@ -201,6 +201,8 @@ class myCar(object):
             lines = self.read_digit()
             line_count = self.count_line(lines)
         print("After T_parking Process Finsish")
+        self.turn(0)
+        self.move(speed)
 
     def line_tracing(self):
         print("line_tracing")
