@@ -142,7 +142,7 @@ class myCar(object):
                 past_degree = degree
                 self.turn(-degree)
                 start_time = time.time()
-                print(start_time)
+                #print(start_time)
 
         self.turn(0)
         self.move(speed)
