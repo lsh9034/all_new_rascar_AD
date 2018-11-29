@@ -3,12 +3,12 @@ import RPi.GPIO as GPIO
 from threading import Thread
 
 class Buzzer(Thread):
-    def __init__(self):
+    def __init__(self, get_distance):
         Thread.__init__(self)
         self.daemon = True
-        self.distance = 5000
+        self.get_distance = get_distance
         # Raspberry pi pin number
-        buzzer_pin = 11
+        buzzer_pin = 8
         frequency = 100
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(buzzer_pin, GPIO.OUT)
@@ -21,9 +21,6 @@ class Buzzer(Thread):
     def stop(self, boolean=True):
         self.__stop = boolean
         GPIO.cleanup()
-    
-    def set_distance(self, distance):
-        self.distance = distance
 
     def run(self):
         buzzerTimeRate = 0.02
@@ -33,11 +30,12 @@ class Buzzer(Thread):
             if diff < self.delay:
                 continue
             self.beforeTime = now
-            print(now, self.distance)
-            if self.distance < 50:
-                print("Beep!, distance :", self.distance)
+            distance = self.get_distance()
+            print(now, distance)
+            if distance < 50:
+                print("Beep!, distance :", distance)
                 self.buzzer.start(100)
-                buzzerTime = buzzerTimeRate * self.distance
+                buzzerTime = buzzerTimeRate * distance
                 self.delay = buzzerTime * 5
                 time.sleep(buzzerTime)
                 self.buzzer.stop()
