@@ -20,6 +20,7 @@ class Buzzer(Thread):
     
     def stop(self, boolean=True):
         self.__stop = boolean
+        GPIO.cleanup()
     
     def set_distance(self, distance):
         self.distance = distance
@@ -42,5 +43,7 @@ class Buzzer(Thread):
 
 if __name__ == "__main__":
     buzzer = Buzzer()
+    buzzer.start()
     for distance in distance_arr:
         buzzer.set_distance(distance)
+    buzzer.stop()
