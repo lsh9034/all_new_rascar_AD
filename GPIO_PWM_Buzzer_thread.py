@@ -1,12 +1,9 @@
 import time
 import RPi.GPIO as GPIO
-from threading import Thread
 
-class Buzzer(Thread):
-    def __init__(self, supersonic):
-        Thread.__init__(self)
-        self.daemon = True
-        self.supersonic = supersonic
+class Buzze:
+    def __init__(self, get_distance):
+        self.get_distance = get_distance
         # Raspberry pi pin number
         buzzer_pin = 8
         frequency = 100
@@ -20,9 +17,6 @@ class Buzzer(Thread):
     
     def stop(self, boolean=True):
         self.__stop = boolean
-    
-    def get_distance(self):
-        return self.supersonic.distance
 
     def run(self):
         buzzerTimeRate = 0.002
