@@ -20,8 +20,7 @@ class myCar(object):
         self.EVADING = 1
         self.T_PARKING = 2
 
-        self.buzzer = Buzzer(self.get_distance)
-        self.buzzer.start()
+        self.buzzer = None
 
     def drive_parking(self):
         self.buzzer.stop()
@@ -193,9 +192,12 @@ class myCar(object):
     def car_startup(self):
         # Implement the assignment code here.
         try:
+            self.buzzer = Buzzer(self.get_distance)
+            self.buzzer.start()
             self.assign()
         except Exception as e:
             print(e)
+            self.buzzer.stop()
             self.stop()
 
 
