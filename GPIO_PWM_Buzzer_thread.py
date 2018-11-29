@@ -23,7 +23,7 @@ class Buzzer(Thread):
         GPIO.cleanup()
 
     def run(self):
-        buzzerTimeRate = 0.02
+        buzzerTimeRate = 0.002
         while not self.__stop:
             now = time.time()
             diff = now - self.beforeTime
