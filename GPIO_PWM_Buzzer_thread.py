@@ -49,4 +49,8 @@ if __name__ == "__main__":
     buzzer.start()
     for distance in distance_arr:
         buzzer.set_distance(distance)
-    buzzer.stop()
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt as e:
+        buzzer.stop()
