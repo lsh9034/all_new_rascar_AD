@@ -188,18 +188,19 @@ class myCar(object):
             continue
         time.sleep(0.1)
 
-        self.turn(-7)
+        self.turn(2)
         self.move(speed)
         while self.car.line_detector.is_in_line():
             continue
-        self.turn(-20)
-        time.sleep(1.3)
+        self.turn(-18)
+        time.sleep(1.5)
         self.turn(27)
         self.move(-speed)
         line_count = 0
         while line_count < 3:
             lines = self.read_digit()
             line_count = self.count_line(lines)
+        print("After T_parking Process Finsish")
 
     def line_tracing(self):
         print("line_tracing")
@@ -228,7 +229,8 @@ class myCar(object):
             check,degree = self.compute_degree(status) #check는 라인밖으로 나갔는지 degree는 꺽어야할 각도
 
             if pass_obstacle ==1:
-                print(status)
+                pass
+                #print(status)
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
