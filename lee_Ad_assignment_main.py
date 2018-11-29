@@ -119,7 +119,7 @@ class myCar(object):
         speed = constant_setting.T_parking_speed
 
         self.move(speed)
-        self.turn(30)
+        self.turn(25)
         time.sleep(1.5)
         self.turn(-20)
         self.move(-(speed))
