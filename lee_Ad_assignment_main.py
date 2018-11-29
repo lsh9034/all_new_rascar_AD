@@ -136,11 +136,11 @@ class myCar(object):
             lines = self.read_digit()
             check,degree = self.compute_degree(lines)
             if(lines == [0,0,0,0,0]):
-                start_time = time.time()
                 self.turn(past_degree)
             elif(past_degree != degree):
                 past_degree = degree
                 self.turn(-degree)
+                time.time()
                 print(start_time)
 
 
