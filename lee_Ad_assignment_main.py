@@ -9,6 +9,8 @@
 from car import Car
 import time
 import constant_setting
+from multiprocessing import Process
+from GPIO_PWM_Buzzer_thread import Buzzer
 
 class myCar(object):
 
@@ -16,6 +18,8 @@ class myCar(object):
         self.car = Car(car_name)
         self.default_degree = 10 #기본적으로 꺽어야하는 기본 각도
         self.weight = [-4,-2,0,2,4] #검은 색 선의 위치에 따라 곱해야할 배수
+
+        self.buzzer = None
 
     def drive_parking(self):
         self.car.drive_parking()
@@ -195,7 +199,6 @@ class myCar(object):
             lines = self.read_digit()
             line_count = self.count_line(lines)
 
-
     def line_tracing(self):
         print("line_tracing")
         past_degree = 90  # 처음은 정면
@@ -242,6 +245,9 @@ class myCar(object):
         self.car.accelerator.stop()
 
     def car_startup(self):
+        self.buzzer = Buzzer(self.car.distance_detector.get_distance)
+        p = Process(target = self.buzzer.run)
+        p.start()
         # implement the assignment code here
         self.line_tracing()
         pass
@@ -258,4 +264,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         # when the Ctrl+C key has been pressed,
         # the moving object will be stopped
+        myCar.buzzer.stop()
         myCar.drive_parking()
