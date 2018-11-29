@@ -50,6 +50,7 @@ if __name__ == "__main__":
     buzzer.start()
     for distance in distance_arr:
         buzzer.set_distance(distance)
+        time.sleep(0.2)
     try:
         while True:
             pass
