@@ -1,5 +1,5 @@
 import time
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 from threading import Thread
 
 distance_arr = [10, 12, 14, 15, 16, 17, 20, 25, 30 , 34, 40 , 50 , 70, 100]
