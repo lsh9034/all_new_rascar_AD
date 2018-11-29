@@ -145,7 +145,7 @@ class myCar(object):
 
 
         self.move(speed)
-        time.sleep(1)
+        time.sleep(1.5)
         self.stop()
         while(True):
             continue
