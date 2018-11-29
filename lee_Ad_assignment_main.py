@@ -132,7 +132,7 @@ class myCar(object):
         past_degree = 0
         check_Start = True
         start_time = time.time()
-        while(time.time() - start_time <= 1):
+        while(time.time() - start_time <= 0.5):
             lines = self.read_digit()
             check,degree = self.compute_degree(lines)
             if(past_degree != degree):
@@ -144,7 +144,7 @@ class myCar(object):
 
 
         self.move(speed)
-        time.sleep(0.4)
+        time.sleep(1)
         self.stop()
         while(True):
             continue
