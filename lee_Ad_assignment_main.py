@@ -140,7 +140,7 @@ class myCar(object):
                 self.turn(past_degree)
             elif(past_degree != degree):
                 past_degree = degree
-                self.turn(-degree)
+                self.turn(degree)
                 start_time = time.time()
             else:
                 start_time = time.time()
