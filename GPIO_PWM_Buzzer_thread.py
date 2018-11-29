@@ -30,7 +30,7 @@ class Buzzer(Thread):
                 continue
             self.beforeTime = now
             distance = self.get_distance()
-            if distance < 50:
+            if distance > 0 and distance < 50:
                 self.buzzer.start(5)
                 buzzerTime = buzzerTimeRate * distance
                 self.delay = buzzerTime * 5
