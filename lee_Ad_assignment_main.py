@@ -137,14 +137,14 @@ class myCar(object):
             lines = self.read_digit()
             line_count = self.count_line(lines)
 
+        self.turn(0)
+        print("touch line")
         line_count = 5
         while line_count > 2:
             lines = self.read_digit()
             line_count = self.count_line(lines)
 
         line_count = 0
-        print("touch line")
-        self.turn(0)
         past_degree = 0
         check_out = False
 
@@ -167,6 +167,7 @@ class myCar(object):
                 self.turn(-degree)
                 check_out = False
         self.stop()
+        print("T_parking Complete")
         while(True):
             continue
 
