@@ -126,7 +126,7 @@ class myCar(object):
         time.sleep(1)
         while(not self.car.line_detector.is_in_line()):
             continue
-
+        print("asdf")
         lines = self.read_digit()
         past_degree = 0
         while(lines != [0,0,0,0,0]):
