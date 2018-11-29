@@ -69,9 +69,6 @@ class myCar(object):
         self.turn(15)
         time.sleep(1.5)
         self.turn(0)
-        self.move(-speed)
-        time.sleep(1.5)
-        self.move(speed)
     
     # T parking
     def T_parking(self):
