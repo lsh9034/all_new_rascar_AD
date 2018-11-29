@@ -101,7 +101,7 @@ class myCar(object):
         self.move(speed)
 
     def compute_degree(self,lines):
-        degree = 90
+        degree = 0
         check = False
         for i in range(len(lines)):
             if lines[i] == 1:  # 맨 처음 1을 만났을 때는 가중치를 곱해줌
@@ -170,7 +170,7 @@ class myCar(object):
                 self.Sort_line(past_degree,speed)
 
             elif degree != past_degree:  # 전에 꺽은 각도와 다른 경우에만 서보모터에 각도 적용
-                self.car.steering.turn(degree)
+                self.turn(degree)
                 past_degree = degree
                 #self.set_L_R_speed(degree,speed)
 
