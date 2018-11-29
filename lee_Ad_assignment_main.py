@@ -93,6 +93,10 @@ class myCar(object):
         while(not self.car.line_detector.is_in_line()):
             continue
 
+        self.move(-speed)
+        self.turn(120)
+        time.sleep(1)
+
     def compute_degree(self,lines):
         degree = 90
         check = False
