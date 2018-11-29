@@ -29,7 +29,9 @@ class Buzzer(Thread):
 
     def run(self):
         buzzerTimeRate = 0.02
+        print("Thread")
         while not self.__stop:
+            print("asdf")
             now = time.time()
             diff = now - self.beforeTime
             if diff < self.delay:
