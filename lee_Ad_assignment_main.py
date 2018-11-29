@@ -111,17 +111,18 @@ class myCar(object):
         print("T_parking")
         speed = 30
 
-        self.stop()
-        self.turn(0)
-        self.move(-speed)
-        time.sleep(0.6)
-        self.turn(25)
         self.move(speed)
-        time.sleep(0.6)
-        self.move(-speed)
         self.turn(0)
-        lines = self.read_digit()
+        time.sleep(1)
+        self.turn(30)
+        time.sleep(1)
+        self.turn(0)
+        self.move(-speed)
 
+        while(not self.car.line_detector.is_in_line()):
+            continue
+
+        lines = self.read_digit()
         past_degree = 0
         while(lines != [0,0,0,0,0]):
             lines = self.read_digit()
@@ -170,7 +171,7 @@ class myCar(object):
 
             elif [1,1,1,1,1] == status and count > 4000:
                 break
-            elif [1,1,1,0,0] == status and pass_obstacle>=1:
+            elif [1,1,1,0,0] == status and pass_obstacle>=  1:
                 self.T_parking()
 
             count+=1
