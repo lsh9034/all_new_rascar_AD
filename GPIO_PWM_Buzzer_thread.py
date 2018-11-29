@@ -10,7 +10,7 @@ class Buzzer(Thread):
         # Raspberry pi pin number
         buzzer_pin = 8
         frequency = 100
-        GPIO.setmode(GPIO.BOARD)
+        #GPIO.setmode(GPIO.BOARD)
         GPIO.setup(buzzer_pin, GPIO.OUT)
         self.buzzer = GPIO.PWM(buzzer_pin, frequency)
         self.buzzer.ChangeFrequency(523.2)
@@ -20,7 +20,6 @@ class Buzzer(Thread):
     
     def stop(self, boolean=True):
         self.__stop = boolean
-        GPIO.cleanup()
 
     def run(self):
         buzzerTimeRate = 0.002
