@@ -114,10 +114,10 @@ class myCar(object):
         return check,degree
 
     def count_line(self,lines):
-        count=0
+        count = 0
         for i in lines:
-            if i==1:
-                count+=1
+            if i == 1:
+                count += 1
         return count
 
     #T_parking
@@ -131,9 +131,12 @@ class myCar(object):
         self.turn(-20)
         self.move(-speed)
         time.sleep(1)
-        line_count = 5
 
-        while(line_count>2):
+        while (not self.car.line_detector.is_in_line()):
+            continue
+
+        line_count = 5
+        while line_count > 2:
             lines = self.read_digit()
             line_count = self.count_line(lines)
 
@@ -143,8 +146,8 @@ class myCar(object):
         past_degree = 0
         check_out = False
 
-        while(line_count<4):
-            line_count=0
+        while line_count < 4:
+            line_count = 0
             lines = self.read_digit()
             check,degree = self.compute_degree(lines)
 
