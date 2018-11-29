@@ -151,7 +151,6 @@ class myCar(object):
         count = 0
         count_obstacle = 0
         pass_obstacle = 0
-        check_T = False
         while (True):
 
             if(pass_obstacle<2):
@@ -168,9 +167,6 @@ class myCar(object):
 
             check,degree = self.compute_degree(status) #check는 라인밖으로 나갔는지 degree는 꺽어야할 각도
 
-            if(pass_obstacle ==1 and status == [0,0,1,0,0]):
-                check_T = True
-                print("Ready")
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
@@ -182,7 +178,7 @@ class myCar(object):
 
             elif [1,1,1,1,1] == status and count > 4000:
                 break
-            elif check_T == True and (status == [1,1,0,0,0] or status == [1,1,1,0,0]):
+            elif status == [1,1,1,0,0] or status == [1,1,1,1,0]:
                 self.T_parking()
 
             count+=1
