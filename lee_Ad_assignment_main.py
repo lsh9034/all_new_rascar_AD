@@ -128,11 +128,12 @@ class myCar(object):
             continue
         print("asdf")
 
+        self.turn(0)
         lines = self.read_digit()
         past_degree = 0
         check_Start = True
         start_time = time.time()
-        while(time.time() - start_time <= 0.7):
+        while(time.time() - start_time <= 0.3):
             lines = self.read_digit()
             check,degree = self.compute_degree(lines)
             if(lines == [0,0,0,0,0]):
@@ -148,7 +149,7 @@ class myCar(object):
 
         self.turn(0)
         self.move(speed)
-        time.sleep(1.5)
+        time.sleep(1)
         self.stop()
         while(True):
             continue
