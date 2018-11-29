@@ -8,9 +8,11 @@ class Buzzer(Thread):
     def __init__(self):
         self.distance = 5000
         # Raspberry pi pin number
-        buzzer_pin = 17
+        buzzer_pin = 11
         frequency = 100
-        self.buzzer = GPIO.setup(buzzer_pin, frequency)
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(buzzer_pin, GPIO.OUT)
+        self.buzzer = GPIO.PWM(buzzer_pin, frequency)
         self.buzzer.ChangeFrequency(523.2)
         self.beforeTime = time.time()
         self.delay = 1E-5
@@ -18,6 +20,7 @@ class Buzzer(Thread):
     
     def stop(self, boolean=True):
         self.__stop = boolean
+        GPIO.cleanup()
     
     def set_distance(self, distance):
         self.distance = distance
@@ -40,5 +43,7 @@ class Buzzer(Thread):
 
 if __name__ == "__main__":
     buzzer = Buzzer()
+    buzzer.start()
     for distance in distance_arr:
         buzzer.set_distance(distance)
+    buzzer.stop()
