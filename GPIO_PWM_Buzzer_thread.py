@@ -11,7 +11,8 @@ class Buzzer(Thread):
         buzzer_pin = 11
         frequency = 100
         GPIO.setmode(GPIO.BOARD)
-        self.buzzer = GPIO.setup(buzzer_pin, frequency)
+        GPIO.setup(buzzer_pin, GPIO.OUT)
+        self.buzzer = GPIO.PWM(buzzer_pin, frequency)
         self.buzzer.ChangeFrequency(523.2)
         self.beforeTime = time.time()
         self.delay = 1E-5
