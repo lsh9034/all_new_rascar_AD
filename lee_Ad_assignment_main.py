@@ -83,17 +83,17 @@ class myCar(object):
 
     def avoid_Obastacle(self,speed):
         print("avoiding")
-        self.car.accelerator.go_forward(speed)
-        self.car.steering.turn(50)
+        self.move(speed)
+        self.turn(-40)
         time.sleep(0.6)
         while(not self.car.line_detector.is_in_line()):
             continue
-        self.car.steering.turn(130)
+        self.turn(40)
         time.sleep(1.6)
         while(not self.car.line_detector.is_in_line()):
             continue
 
-        self.turn(60)
+        self.turn(-30)
         time.sleep(1)
         self.turn(0)
         self.move(-speed)
