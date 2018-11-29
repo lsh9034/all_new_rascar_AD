@@ -76,7 +76,7 @@ class myCar(object):
     def Obstacle_detect(self,Limit_distance):
         distance = self.car.distance_detector.get_distance()
         # print(distance)
-        if distance < Limit_distance and distance != -1:
+        if distance < Limit_distance and distance > 0:
             return True
         else:
             return False
@@ -177,8 +177,22 @@ class myCar(object):
         time.sleep(0.05)
         self.stop()
         print("T_parking Complete")
-        while(True):
+        while(not self.Obstacle_detect(25)):
             continue
+        while(self.Obstacle_detect(25)):
+            continue
+        time.sleep(0.1)
+
+        self.turn(-20)
+        self.move(speed)
+        while(not self.car.line_detector.is_in_line()):
+            continue
+        self.turn(30)
+        line_count = 0
+        while line_count < 3:
+            lines = self.read_digit()
+            line_count = self.count_line(lines)
+
 
     def line_tracing(self):
         print("line_tracing")
