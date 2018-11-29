@@ -137,7 +137,7 @@ class myCar(object):
         print("line_tracing")
         past_degree = 90  # 처음은 정면
         #check_start = True  # 만약 센서가 검은색 선 위에 없이 시작했을 경우에도 작동하기 위해 만든 변수
-        speed = 80
+        speed = 50
         self.car.accelerator.go_forward(speed)  # 전진
         count = 0
         count_obstacle = 0
@@ -148,7 +148,7 @@ class myCar(object):
                 if (self.Obstacle_detect(30)):
                     count_obstacle += 1
                     if (count_obstacle >= 3):
-                        self.avoid_Obastacle(speed)
+                        self.avoid_Obastacle(35)
                         pass_obstacle += 1
                 else:
                     count_obstacle = 0
