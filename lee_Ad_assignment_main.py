@@ -133,6 +133,7 @@ class myCar(object):
         past_degree = 0
         check_out = False
         while(line_count<4):
+            line_count=0
             lines = self.read_digit()
             check,degree = self.compute_degree(lines)
 
@@ -149,7 +150,6 @@ class myCar(object):
                 past_degree = degree
                 self.turn(-degree)
                 check_out = False
-            line_count=0
 
         self.turn(0)
         self.move(speed)
