@@ -113,10 +113,10 @@ class myCar(object):
 
         self.move(speed)
         self.turn(0)
+        #time.sleep(1)
+        #self.turn(30)
         time.sleep(1)
-        self.turn(30)
-        time.sleep(1)
-        self.turn(0)
+        #self.turn(0)
         self.move(-speed)
 
         while(not self.car.line_detector.is_in_line()):
@@ -144,6 +144,7 @@ class myCar(object):
         count = 0
         count_obstacle = 0
         pass_obstacle = 0
+        check_T = False
         while (True):
 
             if(pass_obstacle<2):
@@ -160,6 +161,9 @@ class myCar(object):
 
             check,degree = self.compute_degree(status) #check는 라인밖으로 나갔는지 degree는 꺽어야할 각도
 
+            if(pass_obstacle ==1 and status == [0,0,1,0,0]):
+                check_T = True
+                print("Ready")
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
@@ -171,7 +175,7 @@ class myCar(object):
 
             elif [1,1,1,1,1] == status and count > 4000:
                 break
-            elif ([1,1,0,0,0] == status or [1,1,1,0,0]==status) and pass_obstacle>=  1:
+            elif check_T == True and (status == [1,1,0,0,0] or status == [1,1,1,0,0]):
                 self.T_parking()
 
             count+=1
