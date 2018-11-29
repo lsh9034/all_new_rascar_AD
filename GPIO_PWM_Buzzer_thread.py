@@ -29,15 +29,14 @@ class Buzzer(Thread):
 
     def run(self):
         buzzerTimeRate = 0.02
-        print("Thread")
         while not self.__stop:
-            print("asdf")
             now = time.time()
             diff = now - self.beforeTime
             if diff < self.delay:
                 continue
             self.beforeTime = now
-            if self. distance < 50:
+            print(now, self.distance)
+            if self.distance < 50:
                 print("Beep!")
                 self.buzzer.start(5)
                 buzzerTime = buzzerTimeRate * self.distance
