@@ -81,7 +81,7 @@ class myCar(object):
         else:
             return False
 
-    def avoid_Obastacle(self,speed):
+    def avoid_Obastacle(self, speed):
         print("avoiding")
         self.move(speed)
         self.turn(-40)

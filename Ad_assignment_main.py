@@ -56,24 +56,22 @@ class myCar(object):
     def evading(self):
         print("evading")
         speed = constant_setting.evading_speed
-        turn_angle = 23
-
         self.move(speed)
-        self.turn(turn_angle)
-        while numpy.sum(self.read_digit()) > 0:
-            time.sleep(0.01)
-        
-        while numpy.sum(self.read_digit()) == 0:
-            time.sleep(0.01)
+        self.turn(-40)
+        time.sleep(0.6)
+        while(not self.car.line_detector.is_in_line()):
+            continue
+        self.turn(40)
+        time.sleep(1.6)
+        while(not self.car.line_detector.is_in_line()):
+            continue
 
-        self.turn(-turn_angle)
-        while numpy.sum(self.read_digit()) > 0:
-            time.sleep(0.01)
-
-        while numpy.sum(self.read_digit()) == 0:
-            time.sleep(0.01)
-        self.turn(turn_angle)
-        time.sleep(0.2)
+        self.turn(-15)
+        time.sleep(1.5)
+        self.turn(0)
+        self.move(-speed)
+        time.sleep(1.5)
+        self.move(speed)
     
     # T parking
     def T_parking(self):
