@@ -7,6 +7,7 @@ distance_arr = [10, 12, 14, 15, 16, 17, 20, 25, 30 , 34, 40 , 50 , 70, 100]
 class Buzzer(Thread):
     def __init__(self):
         Thread.__init__(self)
+        self.daemon = True
         self.distance = 5000
         # Raspberry pi pin number
         buzzer_pin = 11
@@ -35,6 +36,7 @@ class Buzzer(Thread):
                 continue
             self.beforeTime = now
             if self. distance < 50:
+                print("Beep!")
                 self.buzzer.start(5)
                 buzzerTime = buzzerTimeRate * self.distance
                 self.delay = buzzerTime * 5
@@ -47,4 +49,8 @@ if __name__ == "__main__":
     buzzer.start()
     for distance in distance_arr:
         buzzer.set_distance(distance)
-    buzzer.stop()
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt as e:
+        buzzer.stop()
