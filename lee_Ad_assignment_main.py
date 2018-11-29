@@ -188,7 +188,7 @@ class myCar(object):
             continue
         time.sleep(0.1)
 
-        self.turn(2)
+        self.turn(5)
         self.move(speed)
         while self.car.line_detector.is_in_line():
             continue
@@ -203,6 +203,7 @@ class myCar(object):
         print("After T_parking Process Finsish")
         self.turn(0)
         self.move(speed)
+        time.sleep(1)
 
     def line_tracing(self):
         print("line_tracing")
