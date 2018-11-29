@@ -57,24 +57,23 @@ class myCar(object):
     def evading(self):
         print("evading")
         speed = constant_setting.evading_speed
-        turn_left_angle = -23
-        turn_right_angle = 23
+        turn_angle = 23
 
         self.move(speed)
-        self.turn(turn_left_angle)
+        self.turn(turn_angle)
         while numpy.sum(self.read_digit()) > 0:
             time.sleep(0.01)
         
         while numpy.sum(self.read_digit()) == 0:
             time.sleep(0.01)
 
-        self.turn(turn_right_angle)
+        self.turn(-turn_angle)
         while numpy.sum(self.read_digit()) > 0:
             time.sleep(0.01)
 
         while numpy.sum(self.read_digit()) == 0:
             time.sleep(0.01)
-        self.turn(turn_left_angle)
+        self.turn(turn_angle)
         time.sleep(0.2)
     
     # T parking
