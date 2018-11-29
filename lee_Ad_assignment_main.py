@@ -74,7 +74,8 @@ class myCar(object):
         self.car.accelerator.left_wheel.speed = int(right_motor_speed)
 
     def Obstacle_detect(self,Limit_distance):
-        distance = self.car.distance_detector.get_distance()
+        distance_arr = [self.car.distance_detector.get_distance() for i in range(5)].sort()
+        distance = distance_arr[2]
         # print(distance)
         if distance < Limit_distance and distance > 0:
             return True
