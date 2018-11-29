@@ -86,6 +86,8 @@ class myCar(object):
         self.turn(25)
         self.move(speed)
         time.sleep(0.6)
+        self.move(-speed)
+        self.turn(0)
 
         lines = self.read_digit()
         while( (lines != [0,0,0,0,0]).all() ):
