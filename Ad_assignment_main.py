@@ -10,6 +10,7 @@ from car import Car
 import time
 import numpy
 import constant_setting
+from GPIO_PWM_Buzzer_thread import Buzzer
 
 class myCar(object):
 
@@ -19,7 +20,11 @@ class myCar(object):
         self.EVADING = 1
         self.T_PARKING = 2
 
+        self.buzzer = Buzzer(self.get_distance)
+        self.buzzer.start()
+
     def drive_parking(self):
+        self.buzzer.stop()
         self.car.drive_parking()
 
     # move front when speed is positive, else move back
