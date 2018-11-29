@@ -83,12 +83,12 @@ class myCar(object):
 
     def avoid_Obastacle(self,speed):
         print("avoiding")
-        self.car.accelerator.go_forward(50)
-        self.car.steering.turn(70)
+        self.car.accelerator.go_forward(speed)
+        self.car.steering.turn(50)
         time.sleep(0.6)
         while(not self.car.line_detector.is_in_line()):
             continue
-        self.car.steering.turn(115)
+        self.car.steering.turn(130)
         time.sleep(1)
         while(not self.car.line_detector.is_in_line()):
             continue
@@ -105,6 +105,7 @@ class myCar(object):
                 elif check == True:  # 그 다음 1을 만났을 때는 기본 각도만큼 더해줌
                     degree += self.default_degree
         return check,degree
+
     #T_parking
     def T_parking(self):
         print("T_parking")
@@ -168,7 +169,7 @@ class myCar(object):
 
             elif [1,1,1,1,1] == status and count > 4000:
                 break
-            elif [1,0,0,0,1] == status :
+            elif [1,1,1,0,0] == status and pass_obstacle>1:
                 self.T_parking()
 
             count+=1
