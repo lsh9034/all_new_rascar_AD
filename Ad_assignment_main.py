@@ -89,7 +89,7 @@ class myCar(object):
         
         vector = numpy.array([-3, -1, 0, 1, 3])
         turning_rate = constant_setting.turning_rate
-        before_turning_angle = -25
+        before_turning_angle = 0
         before_lines_sum = 0
         self.move(speed)
         while True:
