@@ -90,7 +90,7 @@ class myCar(object):
         print("avoiding")
         self.move(speed)
         self.turn(-30)
-        time.sleep(0.7)
+        time.sleep(1)
         while(not self.car.line_detector.is_in_line()):
             continue
         self.turn(30)
@@ -98,11 +98,11 @@ class myCar(object):
         while(not self.car.line_detector.is_in_line()):
             continue
 
-        self.turn(-15)
-        time.sleep(1.5)
-        self.turn(7)
+        self.turn(-14)
+        time.sleep(1.9)
+        self.turn(4)
         self.move(-speed)
-        time.sleep(2)
+        time.sleep(1.8)
         self.move(speed)
 
     def compute_degree(self,lines):
