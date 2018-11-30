@@ -16,7 +16,7 @@ class myCar(object):
 
     def __init__(self, car_name):
         self.car = Car(car_name)
-        self.default_degree = 10 #기본적으로 꺽어야하는 기본 각도
+        self.default_degree = constant_setting.turning_rate #기본적으로 꺽어야하는 기본 각도
         self.weight = [-4,-2,0,2,4] #검은 색 선의 위치에 따라 곱해야할 배수
 
         self.buzzer = None
@@ -89,11 +89,11 @@ class myCar(object):
     def avoid_Obastacle(self, speed):
         print("avoiding")
         self.move(speed)
-        self.turn(-40)
-        time.sleep(0.6)
+        self.turn(-30)
+        time.sleep(0.7)
         while(not self.car.line_detector.is_in_line()):
             continue
-        self.turn(40)
+        self.turn(30)
         time.sleep(1.6)
         while(not self.car.line_detector.is_in_line()):
             continue
@@ -233,7 +233,7 @@ class myCar(object):
 
             if pass_obstacle ==1:
                 pass
-                #print(status)
+                print(status)
             if check == False:
                 count=0
                 self.Sort_line(past_degree,speed)
