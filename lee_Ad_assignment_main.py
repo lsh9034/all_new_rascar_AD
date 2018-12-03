@@ -134,7 +134,7 @@ class myCar(object):
         self.move(speed)
         self.turn(25)
         time.sleep(1.5)
-        self.turn(-15)
+        self.turn(-13)
         self.move(-speed)
         time.sleep(1)
 
@@ -183,11 +183,11 @@ class myCar(object):
         time.sleep(0.05)
         self.stop()
         print("T_parking Complete")
-        while(not self.Obstacle_detect(25)):
+        while(not self.Obstacle_detect(30)):
             continue
-        while(self.Obstacle_detect(25)):
+        while(self.Obstacle_detect(30)):
             continue
-        time.sleep(0.1)
+        time.sleep(1.5)
 
         self.turn(5)
         self.move(speed)
